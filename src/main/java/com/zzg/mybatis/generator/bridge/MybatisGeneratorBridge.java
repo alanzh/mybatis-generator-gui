@@ -1,5 +1,8 @@
 package com.zzg.mybatis.generator.bridge;
 
+import com.alanzh.portal.generator.executor.BaseCodeGenerator;
+import com.alanzh.portal.generator.executor.ControllerCodeGenerator;
+import com.alanzh.portal.generator.executor.ServiceCodeGenerator;
 import com.jcraft.jsch.Session;
 import com.zzg.mybatis.generator.controller.PictureProcessStateController;
 import com.zzg.mybatis.generator.model.DatabaseConfig;
@@ -151,10 +154,12 @@ public class MybatisGeneratorBridge {
         JavaModelGeneratorConfiguration modelConfig = new JavaModelGeneratorConfiguration();
         modelConfig.setTargetPackage(generatorConfig.getModelPackage());
         modelConfig.setTargetProject(generatorConfig.getProjectFolder() + "/" + generatorConfig.getModelPackageTargetFolder());
+
         // Mapper configuration
         SqlMapGeneratorConfiguration mapperConfig = new SqlMapGeneratorConfiguration();
         mapperConfig.setTargetPackage(generatorConfig.getMappingXMLPackage());
         mapperConfig.setTargetProject(generatorConfig.getProjectFolder() + "/" + generatorConfig.getMappingXMLTargetFolder());
+
         // DAO
         JavaClientGeneratorConfiguration daoConfig = new JavaClientGeneratorConfiguration();
         daoConfig.setConfigurationType("XMLMAPPER");
@@ -241,6 +246,8 @@ public class MybatisGeneratorBridge {
                 context.addPluginConfiguration(pluginConfiguration);
             }
         }
+
+        // DAO方法抽出到公共父接口
         if (generatorConfig.isUseDAOExtendStyle()) {
             if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)
                     || DbType.PostgreSQL.name().equals(dbType)) {
@@ -268,6 +275,15 @@ public class MybatisGeneratorBridge {
 			}
 		}
         myBatisGenerator.generate(progressCallback, contexts, fullyqualifiedTables);
+
+        if (generatorConfig.isGenerateService()) {
+            ServiceCodeGenerator.generatorCode(generatorConfig);
+            ControllerCodeGenerator.generatorCode(generatorConfig);
+        }
+
+        if (generatorConfig.isGenerateBase()) {
+            BaseCodeGenerator.generatorCode(generatorConfig);
+        }
     }
 
     private String getMappingXMLFilePath(GeneratorConfig generatorConfig) {

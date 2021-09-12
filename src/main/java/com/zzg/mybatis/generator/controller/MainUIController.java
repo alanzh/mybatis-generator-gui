@@ -52,6 +52,10 @@ public class MainUIController extends BaseFXController {
     @FXML
     private Label configsLabel;
     @FXML
+    private TextField projectPackage;
+    @FXML
+    private TextField projectTargetProject;
+    @FXML
     private TextField modelTargetPackage;
     @FXML
     private TextField mapperTargetPackage;
@@ -91,6 +95,10 @@ public class MainUIController extends BaseFXController {
     private CheckBox useTableNameAliasCheckbox;
     @FXML
     private CheckBox annotationCheckBox;
+    @FXML
+    private CheckBox generateServiceCheckBox;
+    @FXML
+    private CheckBox generateBaseCheckBox;
     @FXML
     private CheckBox useActualColumnNamesCheckbox;
     @FXML
@@ -137,6 +145,16 @@ public class MainUIController extends BaseFXController {
             controller.setMainUIController(this);
             controller.showDialogStage();
         });
+        projectPackage.setOnKeyTyped(event -> {
+            if (projectPackage.getText() != "") {
+                modelTargetPackage.setPromptText(projectPackage.getText() + ".model");
+                daoTargetPackage.setPromptText(projectPackage.getText() + ".mapper");
+            } else {
+                modelTargetPackage.setPromptText(projectPackage.getPromptText() + ".model");
+                daoTargetPackage.setPromptText(projectPackage.getPromptText() + ".mapper");
+            }
+        });
+
 		useExample.setOnMouseClicked(event -> {
 			if (useExample.isSelected()) {
 				offsetLimitCheckBox.setDisable(false);
@@ -380,7 +398,7 @@ public class MainUIController extends BaseFXController {
 		if (StringUtils.isEmpty(domainObjectNameField.getText()))  {
 			return "类名不能为空";
 		}
-		if (StringUtils.isAnyEmpty(modelTargetPackage.getText(), mapperTargetPackage.getText(), daoTargetPackage.getText())) {
+		if (StringUtils.isAnyEmpty(projectPackage.getText(), modelTargetPackage.getText(), mapperTargetPackage.getText(), daoTargetPackage.getText())) {
 			return "包名不能为空";
 		}
 
@@ -414,6 +432,8 @@ public class MainUIController extends BaseFXController {
 
     public GeneratorConfig getGeneratorConfigFromUI() {
         GeneratorConfig generatorConfig = new GeneratorConfig();
+        generatorConfig.setProjectPackage(projectPackage.getText());
+        generatorConfig.setProjectTargetProject(projectTargetProject.getText());
         generatorConfig.setProjectFolder(projectFolderField.getText());
         generatorConfig.setModelPackage(modelTargetPackage.getText());
         generatorConfig.setGenerateKeys(generateKeysField.getText());
@@ -434,6 +454,8 @@ public class MainUIController extends BaseFXController {
         generatorConfig.setNeedForUpdate(forUpdateCheckBox.isSelected());
         generatorConfig.setAnnotationDAO(annotationDAOCheckBox.isSelected());
         generatorConfig.setAnnotation(annotationCheckBox.isSelected());
+        generatorConfig.setGenerateService(generateServiceCheckBox.isSelected());
+        generatorConfig.setGenerateBase(generateBaseCheckBox.isSelected());
         generatorConfig.setUseActualColumnNames(useActualColumnNamesCheckbox.isSelected());
         generatorConfig.setEncoding(encodingChoice.getValue());
         generatorConfig.setUseExample(useExample.isSelected());
@@ -444,6 +466,8 @@ public class MainUIController extends BaseFXController {
     }
 
     public void setGeneratorConfigIntoUI(GeneratorConfig generatorConfig) {
+        projectPackage.setText(generatorConfig.getProjectPackage());
+        projectTargetProject.setText(generatorConfig.getProjectTargetProject());
         projectFolderField.setText(generatorConfig.getProjectFolder());
         modelTargetPackage.setText(generatorConfig.getModelPackage());
         generateKeysField.setText(generatorConfig.getGenerateKeys());
@@ -466,6 +490,8 @@ public class MainUIController extends BaseFXController {
         forUpdateCheckBox.setSelected(generatorConfig.isNeedForUpdate());
         annotationDAOCheckBox.setSelected(generatorConfig.isAnnotationDAO());
         annotationCheckBox.setSelected(generatorConfig.isAnnotation());
+        generateServiceCheckBox.setSelected(generatorConfig.isGenerateService());
+        generateBaseCheckBox.setSelected(generatorConfig.isGenerateBase());
         useActualColumnNamesCheckbox.setSelected(generatorConfig.isUseActualColumnNames());
         encodingChoice.setValue(generatorConfig.getEncoding());
         useExample.setSelected(generatorConfig.isUseExample());

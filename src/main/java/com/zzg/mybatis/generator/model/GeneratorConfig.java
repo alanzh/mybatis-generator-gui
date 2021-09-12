@@ -1,7 +1,6 @@
 package com.zzg.mybatis.generator.model;
 
 /**
- *
  * GeneratorConfig is the Config of mybatis generator config exclude database
  * config
  *
@@ -9,64 +8,96 @@ package com.zzg.mybatis.generator.model;
  */
 public class GeneratorConfig {
 
-	/**
-	 * 本配置的名称
-	 */
-	private String name;
+    /**
+     * 本配置的名称
+     */
+    private String name;
 
-	private String connectorJarPath;
+    private String connectorJarPath;
 
-	private String projectFolder;
+    private String projectPackage;
 
-	private String modelPackage;
+    private String projectTargetProject;
 
-	private String modelPackageTargetFolder;
+    private String projectFolder;
 
-	private String daoPackage;
+    private String modelPackage;
 
-	private String daoTargetFolder;
+    private String modelPackageTargetFolder;
 
-	private String mapperName;
+    private String daoPackage;
 
-	private String mappingXMLPackage;
+    private String daoTargetFolder;
 
-	private String mappingXMLTargetFolder;
+    private String mapperName;
 
-	private String tableName;
+    private String mappingXMLPackage;
 
-	private String domainObjectName;
+    private String mappingXMLTargetFolder;
 
-	private boolean offsetLimit;
+    private String tableName;
 
-	private boolean comment;
+    private String domainObjectName;
 
-	private boolean overrideXML;
+    private boolean offsetLimit;
 
-	private boolean needToStringHashcodeEquals;
+    private boolean comment;
 
-	private boolean useLombokPlugin;
+    private boolean overrideXML;
 
-	private boolean needForUpdate;
+    private boolean needToStringHashcodeEquals;
 
-	private boolean annotationDAO;
+    private boolean useLombokPlugin;
 
-	private boolean annotation;
+    private boolean needForUpdate;
 
-	private boolean useActualColumnNames;
+    private boolean annotationDAO;
 
-	private boolean useExample;
+    private boolean annotation;
 
-	private String generateKeys;
+    private boolean generateService;
 
-	private String encoding;
+    private boolean generateBase;
 
-	private boolean useTableNameAlias;
+    private boolean useActualColumnNames;
 
-	private boolean useDAOExtendStyle;
+    private boolean useExample;
+
+    private String generateKeys;
+
+    private String encoding;
+
+    private boolean useTableNameAlias;
+
+    private boolean useDAOExtendStyle;
 
     private boolean useSchemaPrefix;
 
     private boolean jsr310Support;
+
+    public boolean isGenerateBase() {
+        return generateBase;
+    }
+
+    public void setGenerateBase(boolean generateBase) {
+        this.generateBase = generateBase;
+    }
+
+    public String getProjectTargetProject() {
+        return projectTargetProject;
+    }
+
+    public void setProjectTargetProject(String projectTargetProject) {
+        this.projectTargetProject = projectTargetProject;
+    }
+
+    public String getProjectPackage() {
+        return projectPackage;
+    }
+
+    public void setProjectPackage(String projectPackage) {
+        this.projectPackage = projectPackage;
+    }
 
     public boolean isJsr310Support() {
         return jsr310Support;
@@ -84,117 +115,117 @@ public class GeneratorConfig {
         this.useSchemaPrefix = useSchemaPrefix;
     }
 
-	public boolean isUseExample() {
-		return useExample;
-	}
+    public boolean isUseExample() {
+        return useExample;
+    }
 
-	public void setUseExample(boolean useExample) {
-		this.useExample = useExample;
-	}
+    public void setUseExample(boolean useExample) {
+        this.useExample = useExample;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getTableName() {
-		return tableName;
-	}
+    public String getTableName() {
+        return tableName;
+    }
 
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
 
-	public String getDomainObjectName() {
-		return domainObjectName;
-	}
+    public String getDomainObjectName() {
+        return domainObjectName;
+    }
 
-	public void setDomainObjectName(String domainObjectName) {
-		this.domainObjectName = domainObjectName;
-	}
+    public void setDomainObjectName(String domainObjectName) {
+        this.domainObjectName = domainObjectName;
+    }
 
-	public String getConnectorJarPath() {
-		return connectorJarPath;
-	}
+    public String getConnectorJarPath() {
+        return connectorJarPath;
+    }
 
-	public void setConnectorJarPath(String connectorJarPath) {
-		this.connectorJarPath = connectorJarPath;
-	}
+    public void setConnectorJarPath(String connectorJarPath) {
+        this.connectorJarPath = connectorJarPath;
+    }
 
-	public String getProjectFolder() {
-		return projectFolder;
-	}
+    public String getProjectFolder() {
+        return projectFolder;
+    }
 
-	public void setProjectFolder(String projectFolder) {
-		this.projectFolder = projectFolder;
-	}
+    public void setProjectFolder(String projectFolder) {
+        this.projectFolder = projectFolder;
+    }
 
-	public String getModelPackage() {
-		return modelPackage;
-	}
+    public String getModelPackage() {
+        return modelPackage;
+    }
 
-	public void setModelPackage(String modelPackage) {
-		this.modelPackage = modelPackage;
-	}
+    public void setModelPackage(String modelPackage) {
+        this.modelPackage = modelPackage;
+    }
 
-	public String getModelPackageTargetFolder() {
-		return modelPackageTargetFolder;
-	}
+    public String getModelPackageTargetFolder() {
+        return modelPackageTargetFolder;
+    }
 
-	public void setModelPackageTargetFolder(String modelPackageTargetFolder) {
-		this.modelPackageTargetFolder = modelPackageTargetFolder;
-	}
+    public void setModelPackageTargetFolder(String modelPackageTargetFolder) {
+        this.modelPackageTargetFolder = modelPackageTargetFolder;
+    }
 
-	public String getDaoPackage() {
-		return daoPackage;
-	}
+    public String getDaoPackage() {
+        return daoPackage;
+    }
 
-	public void setDaoPackage(String daoPackage) {
-		this.daoPackage = daoPackage;
-	}
+    public void setDaoPackage(String daoPackage) {
+        this.daoPackage = daoPackage;
+    }
 
-	public String getDaoTargetFolder() {
-		return daoTargetFolder;
-	}
+    public String getDaoTargetFolder() {
+        return daoTargetFolder;
+    }
 
-	public void setDaoTargetFolder(String daoTargetFolder) {
-		this.daoTargetFolder = daoTargetFolder;
-	}
+    public void setDaoTargetFolder(String daoTargetFolder) {
+        this.daoTargetFolder = daoTargetFolder;
+    }
 
-	public String getMappingXMLPackage() {
-		return mappingXMLPackage;
-	}
+    public String getMappingXMLPackage() {
+        return mappingXMLPackage;
+    }
 
-	public void setMappingXMLPackage(String mappingXMLPackage) {
-		this.mappingXMLPackage = mappingXMLPackage;
-	}
+    public void setMappingXMLPackage(String mappingXMLPackage) {
+        this.mappingXMLPackage = mappingXMLPackage;
+    }
 
-	public String getMappingXMLTargetFolder() {
-		return mappingXMLTargetFolder;
-	}
+    public String getMappingXMLTargetFolder() {
+        return mappingXMLTargetFolder;
+    }
 
-	public void setMappingXMLTargetFolder(String mappingXMLTargetFolder) {
-		this.mappingXMLTargetFolder = mappingXMLTargetFolder;
-	}
+    public void setMappingXMLTargetFolder(String mappingXMLTargetFolder) {
+        this.mappingXMLTargetFolder = mappingXMLTargetFolder;
+    }
 
-	public boolean isOffsetLimit() {
-		return offsetLimit;
-	}
+    public boolean isOffsetLimit() {
+        return offsetLimit;
+    }
 
-	public void setOffsetLimit(boolean offsetLimit) {
-		this.offsetLimit = offsetLimit;
-	}
+    public void setOffsetLimit(boolean offsetLimit) {
+        this.offsetLimit = offsetLimit;
+    }
 
-	public boolean isComment() {
-		return comment;
-	}
+    public boolean isComment() {
+        return comment;
+    }
 
-	public void setComment(boolean comment) {
-		this.comment = comment;
-	}
+    public void setComment(boolean comment) {
+        this.comment = comment;
+    }
 
     public boolean isNeedToStringHashcodeEquals() {
         return needToStringHashcodeEquals;
@@ -204,61 +235,69 @@ public class GeneratorConfig {
         this.needToStringHashcodeEquals = needToStringHashcodeEquals;
     }
 
-	public boolean isUseLombokPlugin() {
-		return useLombokPlugin;
-	}
+    public boolean isUseLombokPlugin() {
+        return useLombokPlugin;
+    }
 
-	public void setUseLombokPlugin(boolean useLombokPlugin) {
-		this.useLombokPlugin = useLombokPlugin;
-	}
+    public void setUseLombokPlugin(boolean useLombokPlugin) {
+        this.useLombokPlugin = useLombokPlugin;
+    }
 
-	public boolean isNeedForUpdate() {
-		return needForUpdate;
-	}
+    public boolean isNeedForUpdate() {
+        return needForUpdate;
+    }
 
-	public void setNeedForUpdate(boolean needForUpdate) {
-		this.needForUpdate = needForUpdate;
-	}
+    public void setNeedForUpdate(boolean needForUpdate) {
+        this.needForUpdate = needForUpdate;
+    }
 
-	public boolean isAnnotationDAO() {
-		return annotationDAO;
-	}
+    public boolean isAnnotationDAO() {
+        return annotationDAO;
+    }
 
-	public void setAnnotationDAO(boolean annotationDAO) {
-		this.annotationDAO = annotationDAO;
-	}
+    public void setAnnotationDAO(boolean annotationDAO) {
+        this.annotationDAO = annotationDAO;
+    }
 
-	public boolean isAnnotation() {
-		return annotation;
-	}
+    public boolean isAnnotation() {
+        return annotation;
+    }
 
-	public void setAnnotation(boolean annotation) {
-		this.annotation = annotation;
-	}
+    public void setAnnotation(boolean annotation) {
+        this.annotation = annotation;
+    }
 
-	public boolean isUseActualColumnNames() {
-		return useActualColumnNames;
-	}
+    public boolean isGenerateService() {
+        return generateService;
+    }
 
-	public void setUseActualColumnNames(boolean useActualColumnNames) {
-		this.useActualColumnNames = useActualColumnNames;
-	}
+    public void setGenerateService(boolean generateService) {
+        this.generateService = generateService;
+    }
 
-	public String getMapperName() {
-		return mapperName;
-	}
+    public boolean isUseActualColumnNames() {
+        return useActualColumnNames;
+    }
 
-	public void setMapperName(String mapperName) {
-		this.mapperName = mapperName;
-	}
+    public void setUseActualColumnNames(boolean useActualColumnNames) {
+        this.useActualColumnNames = useActualColumnNames;
+    }
 
-	public String getGenerateKeys() {
-		return generateKeys;
-	}
+    public String getMapperName() {
+        return mapperName;
+    }
 
-	public void setGenerateKeys(String generateKeys) {
-		this.generateKeys = generateKeys;
-	}
+    public void setMapperName(String mapperName) {
+        this.mapperName = mapperName;
+    }
+
+    public String getGenerateKeys() {
+        return generateKeys;
+    }
+
+    public void setGenerateKeys(String generateKeys) {
+        this.generateKeys = generateKeys;
+    }
 
     public String getEncoding() {
         return encoding;
@@ -268,31 +307,32 @@ public class GeneratorConfig {
         this.encoding = encoding;
     }
 
-	public boolean getUseTableNameAlias() {
-		return useTableNameAlias;
-	}
+    public boolean getUseTableNameAlias() {
+        return useTableNameAlias;
+    }
 
-	public void setUseTableNameAlias(boolean useTableNameAlias) {
-		this.useTableNameAlias = useTableNameAlias;
-	}
+    public void setUseTableNameAlias(boolean useTableNameAlias) {
+        this.useTableNameAlias = useTableNameAlias;
+    }
 
-	public boolean isUseTableNameAlias() {
-		return useTableNameAlias;
-	}
+    public boolean isUseTableNameAlias() {
+        return useTableNameAlias;
+    }
 
-	public boolean isOverrideXML() {
-		return overrideXML;
-	}
+    public boolean isOverrideXML() {
+        return overrideXML;
+    }
 
-	public void setOverrideXML(boolean overrideXML) {
-		this.overrideXML = overrideXML;
-	}
+    public void setOverrideXML(boolean overrideXML) {
+        this.overrideXML = overrideXML;
+    }
 
-	public void setUseDAOExtendStyle(boolean useDAOExtendStyle) {
-		this.useDAOExtendStyle = useDAOExtendStyle;
-	}
+    public void setUseDAOExtendStyle(boolean useDAOExtendStyle) {
+        this.useDAOExtendStyle = useDAOExtendStyle;
+    }
 
-	public boolean isUseDAOExtendStyle() {
-		return useDAOExtendStyle;
-	}
+    public boolean isUseDAOExtendStyle() {
+        return useDAOExtendStyle;
+    }
+
 }

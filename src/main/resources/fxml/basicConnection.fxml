@@ -53,7 +53,7 @@
       </HBox>
       <Label text="编码" GridPane.rowIndex="7" />
       <TextField fx:id="schemaField" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <ChoiceBox fx:id="encodingChoice" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="404.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
+      <ChoiceBox fx:id="" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="404.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="7">
         <items>
           <FXCollections fx:factory="observableArrayList">
             <String fx:value="utf8" />
