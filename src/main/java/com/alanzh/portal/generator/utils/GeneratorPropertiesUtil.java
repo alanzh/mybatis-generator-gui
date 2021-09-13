@@ -56,10 +56,13 @@ public class GeneratorPropertiesUtil {
         String entityPackage = generatorConfig.getModelPackage();
         String entityName = generatorConfig.getDomainObjectName();
         String simpleEntityName = GeneratorUtil.toLowerInitial(entityName);
-        String fileDir = generatorConfig.getProjectFolder() + "/" + projectTargetProject + "/" + generatorConfig
-                .getProjectPackage().replace(".", "/") + "/";
+        String projectPackage = generatorConfig.getProjectPackage();
 
-        dataModel.put("modulePackage", projectTargetProject);
+        String fileDir =
+                generatorConfig.getProjectFolder() + "/" + projectTargetProject + "/" + projectPackage.replace(".", "/")
+                        + "/";
+
+        dataModel.put("modulePackage", projectPackage);
         dataModel.put("domainPackage", entityPackage);
         dataModel.put("simpleEntityName", simpleEntityName);
         dataModel.put("entityName", entityName);

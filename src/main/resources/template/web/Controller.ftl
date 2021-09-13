@@ -23,29 +23,35 @@ import ${modulePackage}.utils.SearchCondition;
 @Slf4j
 public class ${entityName}Controller {
 
+	@ApiOperation(value = "create ${entityName} Entry", httpMethod = "POST")
 	@PostMapping("/createEntry-api")
 	public Object createEntryApi(@RequestBody ${entityName} ${entityName?uncap_first}) {
-		return ${entityName?uncap_first}Service.createEntryAPI(${entityName?uncap_first});
+		return ${entityName?uncap_first}Service.createEntryApi(${entityName?uncap_first});
 	}
 
+	@ApiOperation(value = "delete ${entityName} Entry", httpMethod = "POST")
 	@PostMapping("/deleteEntry-api")
 	public Object deleteEntryApi(@RequestBody ${entityName} ${entityName?uncap_first}) {
-		return ${entityName?uncap_first}Service.deleteEntryAPI(${entityName?uncap_first});
+		return ${entityName?uncap_first}Service.deleteEntryApi(${entityName?uncap_first});
 	}
 
+	@ApiOperation(value = "updateEntry ${entityName} Entry", httpMethod = "POST")
 	@PostMapping("/updateEntry-api")
 	public Object updateEntryApi(@RequestBody ${entityName} ${entityName?uncap_first}) {
-		return ${entityName?uncap_first}Service.updateEntryAPI(${entityName?uncap_first});
+		return ${entityName?uncap_first}Service.updateEntryApi(${entityName?uncap_first});
 	}
 
+	@ApiOperation(value = "search ${entityName} Entry", httpMethod = "POST")
 	@PostMapping("/search-api")
 	public Object searchApi(@RequestBody SearchCondition<${entityName}> searchCondition) {
-		return ${entityName?uncap_first}Service.searchAPI(searchCondition);
+		return ${entityName?uncap_first}Service.searchApi(searchCondition);
 	}
 
+	@ApiOperation(value = "searchKeyword ${entityName} Entry", httpMethod = "POST")
 	@PostMapping("/searchKeyword-api")
 	public Object searchKeywordApi(@RequestBody String keyword) {
-		return ${entityName?uncap_first}Service.searchKeywordAPI(keyword);
+		SearchCondition searchCondition = new SearchCondition();
+		return ${entityName?uncap_first}Service.searchKeywordApi(searchCondition);
 	}
 
 	@Autowired
